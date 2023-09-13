@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>10</LangVersion>
+        <RootNamespace>GShark.Speckle.Converter</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="GShark" Version="2.3.0" />
+      <PackageReference Include="Speckle.Core" Version="2.13.0" />
+      <PackageReference Include="Speckle.Objects" Version="2.13.0" />
+    </ItemGroup>
+
+</Project>
