@@ -24,9 +24,7 @@ jobs:
       - name: Build
         run: dotnet build -c Release --no-restore -p:IsCiBuild=true
       - name: Test
-        run: dotnet test --no-build --verbosity normal
-      - name: Pack
-        run: dotnet pack --no-build
+        run: dotnet test -c Release --no-build --verbosity normal
       # - name: Push to nuget
       #   run: dotnet nuget push *.nupkg -k ${NUGET_API_KEY}
       #   env:
