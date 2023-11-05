@@ -1,34 +1,45 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup>
+    <AssemblyName>Objects.Converter.GShark</AssemblyName>
+    <KitFolder>Objects</KitFolder>
+    <VersionPrefix>2.16.0</VersionPrefix>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <CopyToKitFolder>true</CopyToKitFolder>
+    <Title>SpeckleGShark Converter</Title>
+    <Description>Converter for the Speckle Objects Kit. If you're looking for individual conversions, check SpeckleGShark.Modules</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Speckle.Objects" GeneratePathProperty="True"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SpeckleGShark.Modules\SpeckleGShark.Modules.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="/"/>
+  </ItemGroup>
+
+  <Target Label="Copy To Objects Kit Folder" Name="CopyToKitFolder" AfterTargets="PostBuildEvent"
+          Condition="'$(CopyToKitFolder)' == true AND '$(IsCiBuild)' != true">
+    <Message Text="Object NUGET is located at $(PkgSpeckle_Objects)" Importance="high"/>
+    <Message Text="Copying GShark Converter to $(KitFolder) Kit folder" Importance="high"/>
     <PropertyGroup>
-        <AssemblyName>Objects.Converter.GShark</AssemblyName>
-        <KitFolder>Objects</KitFolder>
-        <Version>2.16.0</Version>
-        <CopyToKitFolder>true</CopyToKitFolder>
+      <DestinationFolder Condition="$([MSBuild]::IsOsPlatform('OSX'))">
+        $(Home)/.config/Speckle/Kits/$(KitFolder)/
+      </DestinationFolder>
+      <DestinationFolder Condition="$([MSBuild]::IsOsPlatform('Windows'))">
+        $(AppData)/Speckle/Kits/$(KitFolder)/
+      </DestinationFolder>
     </PropertyGroup>
-
     <ItemGroup>
-        <PackageReference Include="Speckle.Objects" Version="2.16.0" GeneratePathProperty="True"/>
+      <Dependencies Include="$(PkgSpeckle_Objects)/lib/netstandard2.0/Objects.dll"/>
+      <ConverterFiles Include="$(TargetDir)$(AssemblyName).dll"/>
     </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\AlanRynne.SpeckleGShark.Core\AlanRynne.SpeckleGShark.Core.csproj"/>
-        <ProjectReference Include="..\SpeckleGShark.Modules\SpeckleGShark.Modules.csproj"/>
-    </ItemGroup>
-
-
-    <Target Label="Copy To Objects Kit Folder" Name="CopyToKitFolder" AfterTargets="PostBuildEvent" Condition="'$(CopyToKitFolder)' == true AND '$(IsCiBuild)' != true">
-        <Message Text="Object NUGET is located at $(PkgSpeckle_Objects)" Importance="high"/>
-        <Message Text="Copying GShark Converter to $(KitFolder) Kit folder" Importance="high"/>
-        <PropertyGroup>
-            <DestinationFolder Condition="$([MSBuild]::IsOsPlatform('OSX'))">$(Home)/.config/Speckle/Kits/$(KitFolder)/</DestinationFolder>
-            <DestinationFolder Condition="$([MSBuild]::IsOsPlatform('Windows'))">$(AppData)/Speckle/Kits/$(KitFolder)/</DestinationFolder>
-        </PropertyGroup>
-        <ItemGroup>
-            <Dependencies Include="$(PkgSpeckle_Objects)/lib/netstandard2.0/Objects.dll"/>
-            <ConverterFiles Include="$(TargetDir)$(AssemblyName).dll"/>
-        </ItemGroup>
-        <MakeDir Directories="$(DestinationFolder)"/>
-        <Copy SourceFiles="@(ConverterFiles);@(Dependencies)" DestinationFolder="$(DestinationFolder)%(RecursiveDir)"/>
-    </Target>
+    <MakeDir Directories="$(DestinationFolder)"/>
+    <Copy SourceFiles="@(ConverterFiles);@(Dependencies)"
+          DestinationFolder="$(DestinationFolder)%(RecursiveDir)"/>
+  </Target>
 </Project>

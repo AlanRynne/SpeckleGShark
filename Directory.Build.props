@@ -1,34 +1,52 @@
 <Project>
-    <PropertyGroup Label="Language Configuration">
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <LangVersion>10</LangVersion>
-        <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    </PropertyGroup>
+  <PropertyGroup Label="Language Configuration">
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>10</LangVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
 
-    <PropertyGroup Label="Custom properties">
-        <IsCiBuild Condition="$(IsCiBuild) == ''">false</IsCiBuild>
-    </PropertyGroup>
+  <PropertyGroup>
+    <!-- Version info -->
+    <VersionPrefix Condition="$(VersionPrefix) == ''">0.0.999</VersionPrefix>
+  </PropertyGroup>
 
-    <PropertyGroup Label="Author Info">
-        <Authors>Alan Rynne</Authors>
-        <Copyright>Alan Rynne ® 2023</Copyright>
-    </PropertyGroup>
+  <PropertyGroup Label="Custom properties">
+    <IsCiBuild Condition="$(IsCiBuild) == ''">false</IsCiBuild>
+  </PropertyGroup>
 
-    <PropertyGroup Label="Package Config">
-        <!-- Version info -->
-        <Version Condition="$(Version) == ''">1.0.0</Version>
-        <!-- Package info -->
-        <PackageVersion Condition="$(PackageVersion) == ''">$(Version)</PackageVersion>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageTags>speckle;gshark</PackageTags>
-    </PropertyGroup>
+  <PropertyGroup Label="Author Info">
+    <Authors>Alan Rynne</Authors>
+    <Copyright>Alan Rynne ® 2023</Copyright>
+  </PropertyGroup>
 
-    <PropertyGroup Label="Repo Info">
-        <RepositoryUrl>https://github.com/alanrynne/SpeckleGShark</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <!-- Expose the repository root to all projects -->
-        <RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
-    </PropertyGroup>
+  <PropertyGroup Label="Repo Info">
+    <RepositoryUrl>https://github.com/alanrynne/SpeckleGShark</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <!-- Expose the repository root to all projects -->
+    <RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Package Config">
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <!-- Package info -->
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>speckle;gshark</PackageTags>
+    <PackageIcon>SpeckleGSharkLogo.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None
+      Condition="$(IsPackable) == 'true'"
+      Include="$(RepositoryRoot)SpeckleGSharkLogo.png"
+      Pack="True"
+      PackagePath=""
+      Link="SpeckleGSharkLogo.png"
+      Visible="false"/>
+  </ItemGroup>
 </Project>

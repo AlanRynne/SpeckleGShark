@@ -1,0 +1,9 @@
+<Project>
+  <ItemGroup>
+    <PackageVersion Include="Speckle.Core" Version="2.16.0"/>
+    <PackageVersion Include="Speckle.Objects" Version="2.16.0"/>
+    <PackageVersion Include="GShark" Version="2.3.1"/>
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0"/>
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="7.0.1"/>
+  </ItemGroup>
+</Project>

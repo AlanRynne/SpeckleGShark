@@ -1,0 +1,1 @@
+# SpeckleGShark.Core

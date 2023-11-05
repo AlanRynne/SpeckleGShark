@@ -1,16 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Title>SpeckleGshark Modules</Title>
+    <Description>Individual converters for Speckle↔GShark and Dependency Injection container</Description>
+  </PropertyGroup>
 
-    <PropertyGroup>
-    </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="/"/>
+  </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\SpeckleGShark.Core\SpeckleGShark.Core.csproj"/>
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SpeckleGShark.Core\SpeckleGShark.Core.csproj"/>
+  </ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="GShark" Version="2.3.0"/>
-        <PackageReference Include="Speckle.Objects" Version="2.16.0"/>
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1"/>
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="GShark"/>
+    <PackageReference Include="Speckle.Objects"/>
+    <PackageReference Include="Microsoft.Extensions.Hosting"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageVersion Update="GShark" Version="2.3.1"/>
+  </ItemGroup>
 
 </Project>
