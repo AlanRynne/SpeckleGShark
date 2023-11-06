@@ -5,7 +5,7 @@ name: .NET
 
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: [ "main"]
   pull_request:
     branches: [ "main" ]
 
@@ -65,7 +65,15 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build -c Release --no-restore -p:IsCiBuild=true
+        run: dotnet build 
+          -c Release 
+          --no-restore 
+          -p:IsCiBuild=true 
+          -p:VersionPrefix=${{ steps.gitversion.outputs.majorMinorPatch }}
+          -p:VersionSuffix=${{ steps.gitversion.outputs.preReleaseTag }}
+          -p:FileVersion=${{ steps.gitversion.outputs.AssemblySemFileVer }}
+          -p:AssemblyVersion=${{ steps.gitversion.outputs.preReleaseTag }}
+          -p:InformationalVersion=${{ steps.gitversion.outputs.preReleaseTag }}
       - name: Test
         run: dotnet test -c Release --no-build --verbosity normal
       # - name: Push to nuget
