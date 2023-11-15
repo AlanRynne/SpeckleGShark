@@ -34,13 +34,7 @@
     <PackageTags>speckle;gshark</PackageTags>
     <PackageIcon>SpeckleGSharkLogo.png</PackageIcon>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="GitVersion.MsBuild">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
+  
   <ItemGroup>
     <None
       Condition="$(IsPackable) == 'true'"
