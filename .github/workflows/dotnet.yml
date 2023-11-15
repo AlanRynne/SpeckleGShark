@@ -23,6 +23,8 @@ jobs:
           dotnet-version: 7.x
       - name: 🛠️ Restore tools
         run: dotnet tool restore
+      - name: 🖨️ Print current version info
+        run: dotnet dotnet-gitversion
       - name: 📦 Restore packages
         run: dotnet restore
       - name: 🏗️ Build
@@ -32,7 +34,7 @@ jobs:
           -p:IsCiBuild=true
       - name: 🧪 Test
         run: dotnet test -c Release --no-build --no-restore
-      # - name: 🚀 Push to nuget
-      #   run: dotnet nuget push *.nupkg -k ${NUGET_API_KEY}
-      #   env:
-      #     NUGET_API_KEY: ${{secrets.NUGET_API_KEY}}
+      - name: 🚀 Push to nuget
+        run: dotnet nuget push *.nupkg -k ${NUGET_API_KEY}
+        env:
+          NUGET_API_KEY: ${{secrets.NUGET_API_KEY}}
