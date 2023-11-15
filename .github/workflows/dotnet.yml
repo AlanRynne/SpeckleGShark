@@ -35,6 +35,6 @@ jobs:
       - name: 🧪 Test
         run: dotnet test -c Release --no-build --no-restore
       - name: 🚀 Push to nuget
-        run: dotnet nuget push *.nupkg -k ${NUGET_API_KEY}
+        run: dotnet nuget push *.nupkg -k ${NUGET_API_KEY} --source https://api.nuget.org/v3/index.json
         env:
           NUGET_API_KEY: ${{secrets.NUGET_API_KEY}}
