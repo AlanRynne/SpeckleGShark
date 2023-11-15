@@ -1,5 +1,7 @@
 using Microsoft.Extensions.Logging;
+
 using Speckle.Core.Models;
+
 using SpeckleGShark.Core.Converters;
 using SpeckleGShark.Core.Interfaces;
 
@@ -25,16 +27,16 @@ public class MainConverter : ConverterBase<MainConverter>, IObjectConverter<obje
   {
     return obj switch
     {
-      GSG.Point3 pt          => vectorConverter.Convert(pt),
-      GSG.Vector3 v          => vectorConverter.Convert(v),
-      GSG.Plane pln          => vectorConverter.Convert(pln),
-      GSG.Arc arc            => curveConverter.Convert(arc),
-      GSG.Line line          => curveConverter.Convert(line),
-      GSG.Circle circle      => curveConverter.Convert(circle),
-      GSG.NurbsCurve nurbs   => curveConverter.Convert(nurbs),
-      GSG.Mesh mesh          => surfaceConverter.Convert(mesh),
+      GSG.Point3 pt => vectorConverter.Convert(pt),
+      GSG.Vector3 v => vectorConverter.Convert(v),
+      GSG.Plane pln => vectorConverter.Convert(pln),
+      GSG.Arc arc => curveConverter.Convert(arc),
+      GSG.Line line => curveConverter.Convert(line),
+      GSG.Circle circle => curveConverter.Convert(circle),
+      GSG.NurbsCurve nurbs => curveConverter.Convert(nurbs),
+      GSG.Mesh mesh => surfaceConverter.Convert(mesh),
       GSG.NurbsSurface nurbs => surfaceConverter.Convert(nurbs),
-      _                      => throw new ArgumentOutOfRangeException(nameof(obj), obj, null)
+      _ => throw new ArgumentOutOfRangeException(nameof(obj), obj, null)
     };
   }
 }

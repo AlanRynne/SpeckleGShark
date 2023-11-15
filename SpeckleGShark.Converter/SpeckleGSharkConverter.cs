@@ -1,8 +1,9 @@
-﻿using SpeckleGShark.Modules;
-using Speckle.Core.Kits;
+﻿using Speckle.Core.Kits;
 using Speckle.Core.Models;
+
 using SpeckleGShark.Core;
 using SpeckleGShark.Core.Interfaces;
+using SpeckleGShark.Modules;
 
 namespace GShark.SpeckleConverter;
 

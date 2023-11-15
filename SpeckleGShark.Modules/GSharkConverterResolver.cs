@@ -1,6 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+
 using Speckle.Core.Models;
+
 using SpeckleGShark.Core.Context;
 using SpeckleGShark.Core.Interfaces;
 using SpeckleGShark.Core.Logging;

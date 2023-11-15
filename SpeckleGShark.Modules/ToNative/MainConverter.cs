@@ -1,6 +1,8 @@
-using SpeckleGShark.Core;
 using Microsoft.Extensions.Logging;
+
 using Speckle.Core.Models;
+
+using SpeckleGShark.Core;
 using SpeckleGShark.Core.Converters;
 using SpeckleGShark.Core.Interfaces;
 

@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Logging;
+
 using SpeckleGShark.Core.Context;
 using SpeckleGShark.Core.Extensions;
 using SpeckleGShark.Core.Interfaces;

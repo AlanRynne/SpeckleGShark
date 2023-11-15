@@ -1,5 +1,7 @@
 using Divergic.Logging.Xunit;
+
 using Microsoft.Extensions.Logging;
+
 using Xunit.Abstractions;
 
 namespace SpeckleGShark.Tests.Converters;

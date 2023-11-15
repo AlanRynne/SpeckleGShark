@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeckleGShark.Converter", "SpeckleGShark.Converter\SpeckleGShark.Converter.csproj", "{CA8DCD51-CAB5-48E0-948C-7918F9DB0192}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeckleGShark.Tests", "SpeckleGShark.Tests\SpeckleGShark.Tests.csproj", "{9DBB3EC1-21A3-4386-9B7E-C17A968A9755}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeckleGShark.Core", "SpeckleGShark.Core\SpeckleGShark.Core.csproj", "{841D3311-3225-4C6C-BC26-AB01B3D5F39E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeckleGShark.Modules", "SpeckleGShark.Modules\SpeckleGShark.Modules.csproj", "{899B0E06-B72E-474C-BB84-A4B4D8C68FCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeckleGShark.Converter", "SpeckleGShark.Converter\SpeckleGShark.Converter.csproj", "{CA8DCD51-CAB5-48E0-948C-7918F9DB0192}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeckleGShark.Tests", "SpeckleGShark.Tests\SpeckleGShark.Tests.csproj", "{9DBB3EC1-21A3-4386-9B7E-C17A968A9755}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D8153F48-2D0C-48C9-8F91-1E8F1F437390}"
 	ProjectSection(SolutionItems) = preProject

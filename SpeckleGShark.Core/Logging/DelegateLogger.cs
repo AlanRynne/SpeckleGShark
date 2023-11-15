@@ -1,4 +1,5 @@
 using System.Reactive.Disposables;
+
 using Microsoft.Extensions.Logging;
 
 namespace SpeckleGShark.Core.Logging;

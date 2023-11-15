@@ -1,4 +1,5 @@
 using Speckle.Core.Kits;
+
 using SpeckleGShark.Core.Interfaces;
 
 namespace SpeckleGShark.Core.Context;

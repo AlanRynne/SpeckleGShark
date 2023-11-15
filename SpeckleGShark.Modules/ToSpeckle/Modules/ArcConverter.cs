@@ -1,6 +1,7 @@
+using Microsoft.Extensions.Logging;
+
 using SpeckleGShark.Core.Converters;
 using SpeckleGShark.Core.Interfaces;
-using Microsoft.Extensions.Logging;
 
 namespace SpeckleGShark.Modules.ToSpeckle.Modules;
 

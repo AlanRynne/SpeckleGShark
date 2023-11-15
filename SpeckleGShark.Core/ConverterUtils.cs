@@ -1,5 +1,7 @@
 using System.Reflection;
+
 using Speckle.Core.Models;
+
 using SpeckleGShark.Core.Interfaces;
 
 namespace SpeckleGShark.Core;

@@ -1,5 +1,7 @@
 using GShark.Enumerations;
+
 using Microsoft.Extensions.Logging;
+
 using SpeckleGShark.Core.Converters;
 
 namespace SpeckleGShark.Modules.ToSpeckle.Modules;
