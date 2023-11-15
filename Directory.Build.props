@@ -8,11 +8,6 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <!-- Version info -->
-    <VersionPrefix Condition="$(VersionPrefix) == ''">0.0.999</VersionPrefix>
-  </PropertyGroup>
-
   <PropertyGroup Label="Custom properties">
     <IsCiBuild Condition="$(IsCiBuild) == ''">false</IsCiBuild>
   </PropertyGroup>
