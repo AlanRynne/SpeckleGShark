@@ -36,6 +36,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="GitVersion.MsBuild">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
     <None
       Condition="$(IsPackable) == 'true'"
       Include="$(RepositoryRoot)SpeckleGSharkLogo.png"
@@ -44,4 +50,5 @@
       Link="SpeckleGSharkLogo.png"
       Visible="false"/>
   </ItemGroup>
+
 </Project>
