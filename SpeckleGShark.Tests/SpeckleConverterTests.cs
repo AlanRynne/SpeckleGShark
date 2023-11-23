@@ -17,7 +17,6 @@ public class SpeckleConverterTests : IClassFixture<ConverterFixture>
   }
 
   // [Fact]
-  [Fact]
   public void CanGet_Converter_WithKitManager()
   {
     Assert.NotNull(fixture.Converter);
@@ -25,7 +24,6 @@ public class SpeckleConverterTests : IClassFixture<ConverterFixture>
   }
 
   // [Fact]
-  [Fact]
   public void Converter_HasAuthorInfo()
   {
     Assert.NotNull(fixture.Converter.Author);
@@ -37,21 +35,19 @@ public class SpeckleConverterTests : IClassFixture<ConverterFixture>
   }
 
   // [Theory]
-  [Theory]
   [ClassData(typeof(TestAllData))]
   public void Converter_CanConvert_ToNative(object nativeObject, Base speckleObject)
   {
     //var canConvert = fixture.Converter.CanConvertToNative(speckleObject);
     //Assert.True(canConvert);
 
-    var actual = fixture.Converter.ConvertToNative(speckleObject);
+    object? actual = fixture.Converter.ConvertToNative(speckleObject);
 
     Assert.NotNull(actual);
     Assert.IsType(nativeObject.GetType(), actual);
   }
 
   // [Fact]
-  [Fact]
   public void Converter_ReceiveMode_AllowsOnlyCreate()
   {
     Assert.Equal(ReceiveMode.Create, fixture.Converter.ReceiveMode);
@@ -59,14 +55,12 @@ public class SpeckleConverterTests : IClassFixture<ConverterFixture>
   }
 
   // [Fact]
-  [Fact]
   public void Converter_Report_WillThrow()
   {
     Assert.Throws<NotSupportedException>(() => fixture.Converter.Report);
   }
 
   // [Fact]
-  [Fact]
   public void Converter_NotSupportedMethods_WillThrow()
   {
     Assert.Throws<NotSupportedException>(() => fixture.Converter.SetContextDocument(null));
