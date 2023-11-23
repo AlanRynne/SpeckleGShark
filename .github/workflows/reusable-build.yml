@@ -1,0 +1,26 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on:
+  workflow_call:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    name: Build and Test
+    steps:
+      - name: 🛠️ Restore tools
+        run: dotnet tool restore
+      - name: 🖨️ Print current version info
+        run: dotnet dotnet-gitversion
+      - name: 📦 Restore packages
+        run: dotnet restore
+      - name: 🏗️ Build
+        run: dotnet build
+          -c Release
+          --no-restore
+          -p:IsCiBuild=true
+      - name: 🧪 Test
+        run: dotnet test -c Release --no-build --no-restore
