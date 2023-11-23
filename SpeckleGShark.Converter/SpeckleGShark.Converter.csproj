@@ -3,7 +3,6 @@
   <PropertyGroup>
     <AssemblyName>Objects.Converter.GShark</AssemblyName>
     <KitFolder>Objects</KitFolder>
-    <VersionPrefix>2.16.0</VersionPrefix>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <CopyToKitFolder>true</CopyToKitFolder>
     <Title>SpeckleGShark Converter</Title>
