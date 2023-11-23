@@ -5,12 +5,20 @@ name: .NET
 
 on:
   workflow_call:
+    
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     name: Build and Test
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.x
       - name: 🛠️ Restore tools
         run: dotnet tool restore
       - name: 🖨️ Print current version info
@@ -24,3 +32,10 @@ jobs:
           -p:IsCiBuild=true
       - name: 🧪 Test
         run: dotnet test -c Release --no-build --no-restore
+      - uses: actions/upload-artifact@v3
+        with:
+          name: nuget-packages
+          retention-days: 1
+          path: |
+            **/*.nupkg
+            **/*.snupkg
