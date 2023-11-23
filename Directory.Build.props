@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <LangVersion>10</LangVersion>
+    <LangVersion>11</LangVersion>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
@@ -34,7 +34,7 @@
     <PackageTags>speckle;gshark</PackageTags>
     <PackageIcon>SpeckleGSharkLogo.png</PackageIcon>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <None
       Condition="$(IsPackable) == 'true'"
@@ -45,4 +45,9 @@
       Visible="false"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="GitVersion.MsBuild">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
 </Project>
